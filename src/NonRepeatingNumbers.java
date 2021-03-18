@@ -1,11 +1,12 @@
-// Finding non-repeating values in an integer array
+/* Finding non-repeating values in an integer array */
+
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.Random;
 
 public class NonRepeatingNumbers {
 
-	public static void main (String[] args) {
+	public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);
 		Random random = new Random();
@@ -22,6 +23,8 @@ public class NonRepeatingNumbers {
 		int[] array = new int[n];
 		
 		boolean[] flags = new boolean[n]; // true if i-th element of the array is repeating
+		
+		boolean allValuesAreRepeating = true;
 		
 		// Filling the array with random values ranging from lwrLimit to uprLimit
 		for (int i = 0; i < n; i++) {
@@ -40,33 +43,40 @@ public class NonRepeatingNumbers {
 			
 				for (int j = i+1; j < n; j++) {
 					
-					if(array[i] == array[j]) {
+					if (array[i] == array[j]) {
 						
 						flags[i] = true;
 						flags[j] = true;
 						
 					}
-					
 				}
-				
+			}
+			
+			if (flags[i] == false) {
+				allValuesAreRepeating = false;
 			}
 			
 		}
 		
-		System.out.print("Non-repeating values in the array:");
-		
-		for (int i = 0; i < n; i++) {
+		if (allValuesAreRepeating) {
 			
-			if (flags[i] == false) {
+			System.out.print("There are no non-repeating values in the array");
+			
+		} else {
+			
+			System.out.print("Non-repeating values in the array:");
+			
+			for (int i = 0; i < n; i++) {
 				
-				System.out.print(" " + array[i]);
-				
+				if (flags[i] == false) {
+					
+					System.out.print(" " + array[i]);
+					
+				}
 			}
-			
 		}
 		
 		scanner.close();
 		
 	}
-	
 }

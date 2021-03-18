@@ -1,4 +1,6 @@
-// Finding a second smallest element in an array (without taking into account the repetition of the minimum element)
+/* Finding a second smallest element in an array 
+ * (without taking into account the repetition of the minimum element)
+ */
 
 import java.util.Scanner;
 import java.util.Arrays;
@@ -6,7 +8,7 @@ import java.util.Random;
 
 public class SecondSmallest {
 
-	public static void main (String[] args) {
+	public static void main(String[] args) {
 		
 		Scanner scanner = new Scanner(System.in);
 		Random random = new Random();
@@ -49,7 +51,6 @@ public class SecondSmallest {
 				secondMin = array[i];
 				
 			}
-			
 		}
 		
 		if (secondMin == uprLimit + 1) {
@@ -65,5 +66,4 @@ public class SecondSmallest {
 		scanner.close();
 		
 	}
-	
 }
